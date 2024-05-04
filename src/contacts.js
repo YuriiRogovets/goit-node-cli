@@ -2,11 +2,11 @@ import * as fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
 
-const contactsPath = path.join("db", "contacts.json");
+const contactsPath = path.resolve("db", "contacts.json");
   
 async function readFile() {
   const data = await fs.readFile(contactsPath, { encoding: "utf-8" });
-    console.log(JSON.parse(data));
+
   return JSON.parse(data);
 }
 
@@ -45,7 +45,7 @@ async function removeContact(contactId) {
 
   contacts.splice(index, 1);
 
-  writeFile(contacts);
+  await writeFile(contacts);
 
   return deletedContact;
 
@@ -55,15 +55,16 @@ async function removeContact(contactId) {
 async function addContact(name, email, phone) {
     const contacts = await readFile();
     const newContact = {
-    id: crypto.randomUUID(),
-    name,
-    email,
-    phone,
-    }
+        id: crypto.randomUUID(),
+        name,
+        email,
+        phone
+    };
 
     contacts.push(newContact);
 
-    writeFile(contacts);
+    await writeFile(contacts);
+
     return newContact;
 }
 
