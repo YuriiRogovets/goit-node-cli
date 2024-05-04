@@ -1,5 +1,16 @@
 {
   "dependencies": {
     "commander": "^12.0.0"
-  }
+  },
+  "name": "goit-node-cli",
+  "description": "node-hw01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yurii Rohovets",
+  "license": "ISC"
 }

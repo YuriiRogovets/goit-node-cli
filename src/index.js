@@ -1,4 +1,6 @@
 import { program } from "commander";
+import { listContacts, addContact, removeContact, getContactById } from "./contacts.jsnpm install";
+
 program
   .option("-a, --action <type>", "choose action")
   .option("-i, --id <type>", "user id")
@@ -10,23 +12,26 @@ program.parse();
 
 const options = program.opts();
 
-// TODO: рефакторити
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
-      // ...
+      const contacts = await listContacts();
+      console.log(contacts);
       break;
 
     case "get":
-      // ... id
+      const searchContact = await getContactById(id);
+      console.log(searchContact);
       break;
 
     case "add":
-      // ... name email phone
+      const newContact = await addContact(name, email, phone)
+       console.log(newContact);
       break;
 
     case "remove":
-      // ... id
+      const deletedContact = await removeContact(id);
+      console.log(deletedContact);
       break;
 
     default:
