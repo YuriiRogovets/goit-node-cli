@@ -68,4 +68,4 @@ async function addContact(name, email, phone) {
     return newContact;
 }
 
-export default { listContacts, removeContact, getContactById, addContact };
+export { listContacts, removeContact, getContactById, addContact };
