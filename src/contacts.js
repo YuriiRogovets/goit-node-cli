@@ -58,7 +58,7 @@ async function addContact(name, email, phone) {
         id: crypto.randomUUID(),
         name,
         email,
-        phone
+        phone,
     };
 
     contacts.push(newContact);
@@ -68,4 +68,4 @@ async function addContact(name, email, phone) {
     return newContact;
 }
 
-export default { listContacts, addContact, removeContact, getContactById };
+export default { listContacts, removeContact, getContactById, addContact };

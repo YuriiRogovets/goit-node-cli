@@ -1,5 +1,5 @@
 import { program } from "commander";
-import { listContacts, addContact, removeContact, getContactById } from "./contacts.js";
+import { listContacts, removeContact, getContactById, addContact } from "./contacts.js";
 
 program
   .option("-a, --action <type>", "choose action")
@@ -40,3 +40,4 @@ async function invokeAction({ action, id, name, email, phone }) {
 }
 
 invokeAction(options);
+
